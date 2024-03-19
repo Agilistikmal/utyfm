@@ -9,4 +9,4 @@ RUN npm install --legacy-peer-deps
 
 COPY . .
 
-RUN node app.js
+CMD ["node", "app.js"]
