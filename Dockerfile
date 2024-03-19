@@ -8,4 +8,4 @@ COPY . .
 
 RUN npm install
 
-RUN npm start
+RUN node app.js
