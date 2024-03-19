@@ -1,14 +1,11 @@
-FROM node:alpine
-
-RUN apk add g++ && apk add make
+FROM node
 
 WORKDIR /app
 
 COPY package.json package.json
-COPY package-lock.json package-lock.json
 
-RUN npm install
+RUN npm install --legacy-peer-deps
 
 COPY . .
 
-CMD ["node", "app.js"]
+RUN node app.js
