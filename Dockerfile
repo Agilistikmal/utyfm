@@ -1,11 +1,14 @@
 FROM node:alpine
 
-RUN apk update && apk add --no-cache git
+RUN apk add g++ && apk add make
 
 WORKDIR /app
 
-COPY . .
+COPY package.json package.json
+COPY package-lock.json package-lock.json
 
 RUN npm install
 
-RUN node app.js
+COPY . .
+
+CMD ["node", "app.js"]
